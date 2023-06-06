@@ -35,13 +35,13 @@ int main(){
     // cout<<v.size()<<endl;
 
     //type 5
-    int a[6]={1,2,3,4,5,6};
-    vector<int>v(a,a+6);
+    // int a[6]={1,2,3,4,5,6};
+    // vector<int>v(a,a+6);
     // vector<int> v={4,6,7,9,0};
-    for(int i=0;i<v.size();i++)
-    {
-        cout<<v[i]<<" ";
-    }
-    cout<<endl;
+    // for(int i=0;i<v.size();i++)
+    // {
+    //     cout<<v[i]<<" ";
+    // }
+    // cout<<endl;
     return 0;
 }
