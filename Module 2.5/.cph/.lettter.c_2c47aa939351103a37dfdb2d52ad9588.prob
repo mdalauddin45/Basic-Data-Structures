@@ -1,0 +1,1 @@
+{"name":"Local: lettter","url":"e:\\Phitron\\Basic Data Structures\\Module 2.5\\lettter.c","tests":[{"id":1686075712049,"input":"aaabbc","output":"a : 3\nb : 2\nc : 1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Phitron\\Basic Data Structures\\Module 2.5\\lettter.c","group":"local","local":true}
