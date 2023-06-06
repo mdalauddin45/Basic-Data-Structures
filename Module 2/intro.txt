@@ -1,0 +1,6 @@
+1. vactor initialize
+2. vactor constructor
+3. vactor capacity, Modifiers function
+4. how to access vactor and iterator
+5. vactor input
+6. stirng of vactor
