@@ -1,24 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-    
+int main()
+{
     int n;
     cin>>n;
     vector<int> v(n);
-    vector<int> v1(n);
-
     for(int i=0;i<n;i++)
     {
         cin>>v[i];
     }
+    replace(v.begin(),v.end(),v.end(),v.begin());
     for(int i=0;i<n;i++)
     {
-        cin>>v1[i];
-    }
-    v1.insert(v1.end(),v.begin(),v.end());
-    for(int x:v1)
-    {
-        cout<<x<<" ";
+        cout<<v[i]<<" ";
     }
     return 0;
 }
