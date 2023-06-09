@@ -1,28 +1,19 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int IsSorted(int arr[],int n)
+int arraySortedOrNot(int arr[], int n)
 {
-     if(n==0|| n==1)
-       {
-         return 1;
-        }
-    for(int i=1;i<n;i++)
-    {
-       
-     if(arr[i-1]>arr[i]) {
-         return false;
-        }
-     else {
-         return true;
-     }; 
-    }
-    return true;
+	if (n == 1 || n == 0)
+		return 1;
+	if (arr[n - 1] < arr[n - 2])
+		return 0;
+	return arraySortedOrNot(arr, n - 1);
 }
 int main()
 {
     long long n;
     cin>>n;
-    for(int i=0;i<n;i++)
+    int i=0;
+    while (i<n)
     {
         long long x;
         cin>>x;
@@ -31,10 +22,11 @@ int main()
         {
             cin>>arr[j];
         }
-       
-        if(IsSorted(arr,x)) cout<<"YES";
-        else cout<<"NO";
-        cout<<endl;
+       if (arraySortedOrNot(arr, n))
+		cout << "YES\n";
+	   else
+		cout << "NO\n";
+        i++;
     }
     return 0;
 }
