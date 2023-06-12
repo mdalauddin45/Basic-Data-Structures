@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "ostream": "cpp"
     },
     "cph.general.onceMaintainerMessage": false
 }
