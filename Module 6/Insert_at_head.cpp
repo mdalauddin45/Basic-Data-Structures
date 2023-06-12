@@ -95,8 +95,11 @@ int main()
             if(pos==0)
             {
                 insert_at_head(head,v);
+            }else 
+            {
+                insert_at_position(head,pos,v);
             }
-            insert_at_position(head,pos,v);
+            
         }
         else if (op==4)
         {
