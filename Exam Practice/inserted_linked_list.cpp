@@ -46,6 +46,34 @@ void print_linked_list(Node* head)
     }
     cout<<endl;
 }
+void insert_at_position(Node *&head, int pos,int v)
+{
+    Node* newNode=new Node(v);
+    if(pos==0){
+    newNode->next=head;
+    head=newNode;
+    cout<<endl<<"Insert at head "<<endl;
+    }
+    else 
+    {
+    Node * temp = head;
+    for(int i=1;i<pos-1;i++)
+    {
+        temp= temp->next;
+    }
+    newNode->next=temp->next;
+    temp->next=newNode;
+    cout<<endl<<"Inset at position "<<pos<<endl;
+    }
+    
+}
+// void insert_at_head(Node*&head,int v)
+// {
+//     Node * newNode=new Node(v);
+//     newNode->next=head;
+//     head=newNode;
+//     cout<<endl<<"Insert at head "<<endl;
+// }
 int main()
 {
     Node* head = NULL;
@@ -66,9 +94,13 @@ int main()
         }
         else if (op==2)
         {
-            /* code */
+            int pos,v;
+            cout<<"Enter position ";
+            cin>>pos;
+            cout<<"Enter value ";
+            cin>>v;
+            insert_at_position(head,pos,v);
         }
-        
         else if (op==3)
         {
             print_linked_list(head);
