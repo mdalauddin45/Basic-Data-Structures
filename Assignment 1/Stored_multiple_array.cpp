@@ -1,33 +1,33 @@
+
 #include <bits/stdc++.h>
 using namespace std;
-bool arraySortedOrNot(int arr[], int n)
+int arraySortedOrNot(int arr[], int n)
 {
-    for(int i=1;i<n;i++)
-    {
-        if(arr[i]<arr[i-1])
-        {
-            return false;
-        }
-    }
-    return true;
+	if (n == 1 || n == 0)
+		return 1;
+	if (arr[n - 1] < arr[n - 2])
+		return 0;
+	return arraySortedOrNot(arr, n - 1);
 }
 int main()
 {
     long long n;
     cin>>n;
-    for(int i=0;i<n;i++)
+    int i=0;
+    while (i<n)
     {
-         long long x;
+        long long x;
         cin>>x;
         int arr[x];
         for(int j=0;j<x;j++)
         {
             cin>>arr[j];
         }
-       if (arraySortedOrNot(arr, x))
-		cout << "YES"<<endl;
+       if (arraySortedOrNot(arr, n))
+		cout << "YES\n";
 	   else
-		cout << "NO"<<endl;
+		cout << "NO\n";
+        i++;
     }
     return 0;
 }
