@@ -32,11 +32,28 @@ void Print_linked_list(Node * head)
     int i=0;
     while (temp!=NULL)
     {
+        cout<<temp->val<<" ";
         temp=temp->next;
-        i++;
     }
-    cout<<i;
     cout<<endl;
+}
+bool duplicate_val(Node * head)
+{
+    while (head->next!=NULL)
+    {
+        Node * temp = head->next;
+        while (temp!=NULL)
+        {
+            if(head->val == temp->val)
+            {
+                return true;
+                break;
+            }
+            temp = temp->next;
+        }
+        head=head->next;
+    }
+    return false;
 }
 int main()
 {
@@ -48,6 +65,10 @@ int main()
         if(v==-1) break;
         insert_at_tial(head,v);
     }
-    Print_linked_list(head);
+    // Print_linked_list(head);
+   if(duplicate_val(head))
+   cout << "YES"<<endl;
+       else
+        cout << "NO"<<endl;
     return 0;
 }
