@@ -19,7 +19,6 @@ void insert_at_tail(Node *&head,int v)
         head=newNode;
         return;
     }
-
     //tial
     Node * temp=head;
     while (temp->next!=NULL)
