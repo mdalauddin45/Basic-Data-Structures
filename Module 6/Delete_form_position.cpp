@@ -62,6 +62,17 @@ void insert_at_head(Node * &head, int v)
     head=newNode;
     cout<<endl<<"Inserted at head"<<endl;
 }
+void delete_form_position(Node *head, int pos)
+{
+    Node * temp=head;
+    for(int i=1;i<=pos-1;i++)
+    {
+        temp=temp->next;
+    }
+    Node * deleteNode = temp->next;
+    temp->next=temp->next->next;
+    delete deleteNode;
+}
 int main()
 {
     Node* head=NULL;
@@ -71,7 +82,9 @@ int main()
         cout<<"Option 2: Print Linked List "<<endl;
         cout<<"Option 3: Inser at any position "<<endl;
         cout<<"Option 4: Inser at Head "<<endl;
-        cout<<"Option 5: Terminate "<<endl;
+        cout<<"Option 5: Delete any position"<<endl;
+        cout<<"Option 5: Delete any position"<<endl;
+        cout<<"Option 6: Terminate "<<endl;
         int op;
         cin>>op;
         if(op==1)
@@ -109,6 +122,13 @@ int main()
             insert_at_head(head,v);
         }
         else if (op==5)
+        {
+           int pos;
+           cout<<"Enter position ";
+           cin>>pos;
+            delete_form_position(head,pos);
+        }   
+        else if (op==6)
         {
            break;
         }   
