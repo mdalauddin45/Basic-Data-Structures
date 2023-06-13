@@ -29,7 +29,6 @@ void insert_at_tial(Node*&head,int v)
 void Print_linked_list(Node * head)
 {
     Node * temp=head;
-    int i=0;
     while (temp!=NULL)
     {
         cout<<temp->val<<" ";
