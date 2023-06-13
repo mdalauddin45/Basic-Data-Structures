@@ -1,0 +1,1 @@
+{"name":"Local: pp","url":"e:\\Phitron\\Basic Data Structures\\Module 6.5\\pp.cpp","tests":[{"id":1686624767399,"input":"2 4 6 8 10 -1","output":"6"},{"id":1686624771578,"input":"1 2 3 4 5 6 -1","output":"3 4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Phitron\\Basic Data Structures\\Module 6.5\\pp.cpp","group":"local","local":true}
