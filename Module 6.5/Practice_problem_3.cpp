@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
 class Node
 {
@@ -26,43 +26,28 @@ void insert_at_tial(Node*&head,int v)
     }
     temp->next=newNode;
 }
-void Print_linked_list(Node * head)
-{
-    Node * temp=head;
-    while (temp!=NULL)
-    {
-        //cout<<temp->val<<" ";
-        temp=temp->next;
-    }
-    cout<<endl;
-}
-void middle_val(Node*head)
-{
-    if(head==NULL)
-    {
-        cout<<"Empty List"<<endl;
+void Print_middle(Node* head) {
+    if (head == NULL) {
+        cout << "Empty list" << endl;
         return;
     }
-    Node * temp = head;
-    Node * temp1 = head;
-    Node * prev = NULL;
+    Node* slow = head;
+    Node* fast = head;
+    Node* prev = nullptr;
 
-    while (temp1!=NULL)
-    {
-        temp1=temp1->next->next;
-        prev=temp;
-        temp=temp->next;
-    }
-    if(temp1!=NULL )
-    {
-        cout<<temp->val<<endl;
-    }else{
-        cout<<prev->val<<" "<<temp->val<<endl;
+    while (fast != nullptr && fast->next != nullptr) {
+        fast = fast->next->next;
+        prev = slow;
+        slow = slow->next;
     }
 
+    if (fast == nullptr) {
+        cout<< prev->val << " " << slow->val << endl;
+    } else {
+        cout<< slow->val << endl;
+    }
 }
-int main()
-{
+int main() {
     int v;
     Node * head =NULL;
     while (true)
@@ -71,7 +56,6 @@ int main()
         if(v==-1) break;
         insert_at_tial(head,v);
     }
-    //  Print_linked_list(head);
-    middle_val(head);
+    Print_middle(head);
     return 0;
 }

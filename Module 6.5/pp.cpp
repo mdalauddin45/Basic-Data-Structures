@@ -26,7 +26,7 @@ void insert_at_tial(Node*&head,int v)
     }
     temp->next=newNode;
 }
-void printMiddle(Node* head) {
+void Print_middle(Node* head) {
     if (head == NULL) {
         cout << "Empty list" << endl;
         return;
@@ -56,6 +56,6 @@ int main() {
         if(v==-1) break;
         insert_at_tial(head,v);
     }
-    printMiddle(head);
+    Print_middle(head);
     return 0;
 }
