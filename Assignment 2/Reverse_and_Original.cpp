@@ -11,21 +11,17 @@
          this->next=NULL; 
      } 
  }; 
- void insert_link_list(Node * &head, int v) 
+ void insert_link_list(Node * &head,Node*&tail, int v) 
  { 
-     Node * newNode = new Node(v); 
-     Node * temp = head; 
-     if(head==NULL) 
-     { 
-         head=newNode; 
-         return; 
-     } 
-     while (temp->next!=NULL) 
-     { 
-         temp=temp->next; 
-     } 
-     temp->next=newNode; 
-  
+      Node *newNode = new Node(v);
+     if (head == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+    tail->next = newNode;
+    tail = newNode; 
  }
 void Print(Node*head)
 {
@@ -43,19 +39,27 @@ void reverse_print(Node * head)
     reverse_print(head->next);
     cout<<head->val<<" ";
 }
-
+void a_print(Node * head)
+{
+    if(head==NULL) return;
+    cout<<head->val<<" ";
+    a_print(head->next);
+}
  int main() 
  { 
-     Node * head = NULL; 
-     long long v; 
-     while (true) 
-     { 
-         cin>>v; 
-         if(v==-1) break; 
-         insert_link_list(head,v); 
-     }
+        Node *head = NULL;
+    Node *tail = NULL;
+    int val;
+    while (true)
+    {
+        cin >> val;
+        if (val == -1)
+            break;
+        insert_link_list(head, tail, val);
+    }
     reverse_print(head);
     cout<<endl;
-
+    // Print(head);
+    a_print(head);
      return 0; 
  }

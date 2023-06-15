@@ -48,9 +48,21 @@ void print_Link_List(Node*head)
     cout<<endl;
 }
 bool cmp_value(Node * head, Node * head1)
-{
-    if(head->val==head1->val) return true;
-    else return false;
+{   
+    Node * temp = head;
+    Node * temp1 = head1;
+    while (temp->next!=NULL && temp1->next!=NULL)
+    {
+         if(temp->val==temp1->val){ 
+            return true;
+            }
+         else {
+            return false;
+            }
+         temp=temp->next;
+         temp1=temp1->next;
+    } 
+    return false;
 }
  int main() 
  { 
@@ -71,7 +83,7 @@ bool cmp_value(Node * head, Node * head1)
          insert_link_list(head1,v); 
      }
     //  print_Link_List(head1);
-    if(cmp_value(head,head1)==1 && size(head)==size(head1)) cout<<"YES";
+    if( cmp_value(head,head1)==1 && size(head)==size(head1)) cout<<"YES";
     else cout<<"NO";
     //  cout<<cmp_value(head,head1);
      return 0; 
