@@ -11,21 +11,17 @@
          this->next=NULL; 
      } 
  }; 
- void insert_link_list(Node * &head, int v) 
+  void insert_link_list(Node * &head,Node*&tail, int v) 
  { 
-     Node * newNode = new Node(v); 
-     Node * temp = head; 
-     if(head==NULL) 
-     { 
-         head=newNode; 
-         return; 
-     } 
-     while (temp->next!=NULL) 
-     { 
-         temp=temp->next; 
-     } 
-     temp->next=newNode; 
-  
+      Node *newNode = new Node(v);
+     if (head == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+    tail->next = newNode;
+    tail = newNode; 
  }
  int size(Node * head)
 {
@@ -47,44 +43,42 @@ void print_Link_List(Node*head)
     }
     cout<<endl;
 }
+
 bool cmp_value(Node * head, Node * head1)
 {   
     Node * temp = head;
     Node * temp1 = head1;
-    while (temp->next!=NULL && temp1->next!=NULL)
+    while (temp!=NULL && temp1!=NULL)
     {
-         if(temp->val==temp1->val){ 
-            return true;
-            }
-         else {
-            return false;
-            }
+         if(temp->val==temp1->val)return true;
+         else  return false;
          temp=temp->next;
          temp1=temp1->next;
     } 
-    return false;
+    return true;
 }
  int main() 
  { 
-     Node * head = NULL; 
-     Node * head1= NULL; 
-     int v; 
-     while (true) 
-     { 
-         cin>>v; 
-         if(v==-1) break; 
-         insert_link_list(head,v); 
-     }
-    //  print_Link_List(head);
-     while (true) 
-     { 
-         cin>>v; 
-         if(v==-1) break; 
-         insert_link_list(head1,v); 
-     }
-    //  print_Link_List(head1);
+    Node *head = NULL;
+    Node *tail = NULL;
+    Node *head1 = NULL;
+    Node *tail1 = NULL;
+    int val;
+    while (true)
+    { 
+        cin >> val;
+        if (val == -1)
+            break;
+        insert_link_list(head, tail, val);
+    }
+    while (true)
+    {
+        cin >> val;
+        if (val == -1)
+            break;
+        insert_link_list(head1, tail1, val);
+    }
     if( cmp_value(head,head1)==1 && size(head)==size(head1)) cout<<"YES";
     else cout<<"NO";
-    //  cout<<cmp_value(head,head1);
      return 0; 
  }

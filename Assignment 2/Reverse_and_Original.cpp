@@ -47,7 +47,7 @@ void a_print(Node * head)
 }
  int main() 
  { 
-        Node *head = NULL;
+    Node *head = NULL;
     Node *tail = NULL;
     int val;
     while (true)
