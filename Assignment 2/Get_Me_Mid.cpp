@@ -11,7 +11,6 @@
          this->next=NULL; 
      } 
  }; 
- //link list create in tail 
  void insert_link_list(Node * &head, int v) 
  { 
      Node * newNode = new Node(v); 
@@ -39,13 +38,6 @@
     return i;
     
 }
-void descending_print(Node * head)
-{
-    if(head==NULL) return;
-    descending_print(head->next);
-    cout<<head->val<<" ";
-}
-//midle value print
 void middle_print(Node * head)
 {
     Node * temp = head;
@@ -75,7 +67,16 @@ void middle_print(Node * head)
          if(v==-1) break; 
          insert_link_list(head,v); 
      }
-     descending_print(head);
-    //  middle_print(head);
+      for(Node * i = head;i->next!=NULL;i=i->next)
+    {
+        for(Node * j=i->next;j!=NULL;j=j->next)
+        {
+            if(i->val<j->val)
+            {
+                swap(i->val,j->val);
+            }
+        }
+    }
+     middle_print(head);
      return 0; 
  }
