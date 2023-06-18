@@ -46,6 +46,7 @@ int main()
     a->next=b;
     b->pre=a;
 
+
     //printing
     print_normal(head);
     cout<<endl;
