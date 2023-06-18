@@ -46,6 +46,16 @@ void insert_any_position(Node* & head,int pos,int v)
     newNode->next->pre=newNode; // 100<-30
     newNode->pre=temp; //20<-100
 }
+int size(Node* head)
+{
+    int i=0;
+    while (head!=NULL)
+    {
+        head=head->next;
+        i++;
+    }
+    return i;
+}
 int main()
 {
     Node* head= new Node(10);
@@ -62,7 +72,14 @@ int main()
     b->next=c;
     c->pre=b;
 
-    insert_any_position(head,2,100);
+    int val,pos;
+    cin>>val>>pos;
+    if(pos>=size(head))
+    {
+        cout<<"Invalid"<<endl;
+    }else{
+    insert_any_position(head,pos,val);
+    }
 
     //printing
     print_normal(head);
