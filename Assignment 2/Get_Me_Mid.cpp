@@ -68,7 +68,7 @@ void middle_print(Node * head)
          insert_link_list(head,v); 
      }
       for(Node * i = head;i->next!=NULL;i=i->next)
-    {
+         {
         for(Node * j=i->next;j!=NULL;j=j->next)
         {
             if(i->val<j->val)
