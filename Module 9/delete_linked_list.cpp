@@ -95,6 +95,13 @@ void delete_linked_list(Node*head,int pos)
     temp->next->pre=temp;
     delete deleteNode;
 }
+void delete_tail(Node*&tail)
+{
+    Node* deleteNode = tail;
+    tail=tail->pre;
+    delete deleteNode;
+    tail->next=NULL;
+}
 int main()
 {
     // Node* head= NULL;
@@ -133,7 +140,8 @@ int main()
     print_normal(head);
     cout<<endl;
     // print_reverce(tail);
-    delete_linked_list(head,2);
+    // delete_linked_list(head,1);
+    delete_tail(tail);
      print_normal(head);
     return 0;
 }
