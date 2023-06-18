@@ -10,16 +10,24 @@ int main()
     // mylist.pop_back();
     // mylist.pop_front();
     mylist.push_front(60);
-    mylist.insert(mylist.begin(),100);
+    // mylist.insert(mylist.begin(),100);
+
+    //insert
+    mylist.insert(next(mylist.begin(),4),100); 
+
     //asign 
     // newList.assign(mylist.begin(),mylist.end());
     // for(int val: newList)
     // {
     //     cout<<val << " ";
     // }
+
+    mylist.erase(next(mylist.begin(),2));
     for(int val: mylist)
     {
         cout<<val << " ";
     }
+
+    //found or no found 
     return 0;
 }
