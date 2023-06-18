@@ -33,18 +33,36 @@ void print_reverce(Node* tail)
     }
     
 }
+void insert_any_position(Node* & head,int pos,int v)
+{
+    Node* newNode = new Node(v);
+    Node * temp = head;
+    for(int i=1;i<=pos-1;i++)
+    {
+        temp=temp->next;
+    }
+    newNode->next=temp->next; // 100 er next  30 connect
+    temp->next=newNode; // 20-> 100
+    newNode->next->pre=newNode; // 100<-30
+    newNode->pre=temp; //20<-100
+}
 int main()
 {
     Node* head= new Node(10);
     Node* a= new Node(20);
     Node* b= new Node(30);
-    Node* tail=b;
+    Node* c= new Node(40);
+    Node* tail=c;
 
     //connection
     head->next=a;
     a->pre=head;
     a->next=b;
     b->pre=a;
+    b->next=c;
+    c->pre=b;
+
+    insert_any_position(head,2,100);
 
     //printing
     print_normal(head);
