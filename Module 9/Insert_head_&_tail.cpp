@@ -46,18 +46,20 @@ void insert_any_position(Node* & head,int pos,int v)
     newNode->next->pre=newNode; // 100<-30
     newNode->pre=temp; //20<-100
 }
-void insert_head(Node*&head,int v)
+void insert_head(Node*&head,Node* &tail,int v)
 {
     Node* newNode = new Node(v);
     if(head==NULL)
     {
         head=newNode;
+        tail=newNode;
         return;
     }
     newNode->next=head;
     head->pre=newNode;
     head=newNode;
 }
+
 int size(Node* head)
 {
     int i=0;
@@ -88,7 +90,7 @@ int main()
     cin>>val>>pos;
     if(pos==0)
     {
-        insert_head(head,val);
+        insert_head(head,tail,val);
     }else if(pos>=size(head))
     {
         cout<<"Invalid"<<endl;
@@ -98,7 +100,7 @@ int main()
 
     //printing
     print_normal(head);
-    // cout<<endl;
-    // print_reverce(tail);
+    cout<<endl;
+    print_reverce(tail);
     return 0;
 }
