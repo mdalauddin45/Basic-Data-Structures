@@ -29,16 +29,28 @@ void printList(Node* head, Node* tail) {
     }
     cout << endl;
 }
-
-void insertAtpos(Node*& head, Node*& tail, int pos, int val) {
+void insert_head(Node*&head,Node* &tail,int v)
+{
+    Node* newNode = new Node(v);
+    if(head==NULL)
+    {
+        head=newNode;
+        tail=newNode;
+        return;
+    }
+    newNode->next=head;
+    head->pre=newNode;
+    head=newNode;
+}
+void insert_at_pos(Node*& head, Node*& tail, int pos, int val) {
+    Node* newNode = new Node(val);
     Node* temp = head;
-    int curpos = 0;
+    int i = 0;
     
     if (pos < 0) {
         cout << "Invalid" << endl;
         return;
     }
-    Node* newNode = new Node(val);
     if (head == NULL) {
         if (pos == 0) {
             head = newNode;
@@ -51,16 +63,16 @@ void insertAtpos(Node*& head, Node*& tail, int pos, int val) {
         }
     }
     else if (pos == 0) {
-        newNode->next = head;
-        head->pre = newNode;
-        head = newNode;
+        insert_head(head,tail,val);
     }
     else {
-        while (curpos < pos - 1 && temp->next != NULL) {
+        while (i < pos - 1 && temp->next != NULL)
+        {
             temp = temp->next;
-            curpos++;
+            i++;
         }
-        if (curpos < pos - 1 || temp == NULL) {
+        if (i < pos - 1 || temp == NULL)
+        {
             cout << "Invalid" << endl;
             delete newNode;
             return;
@@ -68,10 +80,12 @@ void insertAtpos(Node*& head, Node*& tail, int pos, int val) {
         newNode->next = temp->next;
         newNode->pre = temp;
         temp->next = newNode;
-        if (newNode->next != NULL) {
+        if (newNode->next != NULL)
+        {
             newNode->next->pre = newNode;
         }
-        else {
+        else
+        {
             tail = newNode;
         }
     }
@@ -87,7 +101,7 @@ int main() {
     while (q--) {
         int x, v;
         cin >> x >> v;
-        insertAtpos(head, tail, x, v);
+        insert_at_pos(head, tail, x, v);
     }
     return 0;
 }
