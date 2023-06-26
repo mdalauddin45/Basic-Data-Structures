@@ -37,10 +37,18 @@ int main()
         cin>>val;
         st.push(val);
     }
-    for(int i=0;i<n;i++)
+    //output -1
+    // for(int i=0;i<n;i++)
+    // {
+    //     cout<<st.top()<<" ";
+    //     st.pop();
+    // }
+
+    while (!st.empty())
     {
         cout<<st.top()<<" ";
         st.pop();
     }
+    
     return 0;
 }
