@@ -109,6 +109,7 @@ void delete_val(Node*head,int v)
     }
     cout<<"Node with value no found."<<endl; 
 }
+//one of best way of delete any value form the linked list 
 void delete_value(Node*&head, int v)
 {
     if (head == NULL)
@@ -184,7 +185,7 @@ int main()
     print_head(head);
     cout<<endl;
     // delete_at_pos(head,2);
-    delete_value(head,30);
+    delete_value(head,50);
     print_head(head);
     cout<<endl;
     return 0;
