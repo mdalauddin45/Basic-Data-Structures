@@ -29,6 +29,19 @@ void insert_at_pos(Node* head, int pos, int val)
     newNode->next->pre=newNode;
     newNode->pre=temp;
 }
+void insert_head(Node*&head,Node*&tail, int val)
+{
+    Node* newNode = new Node(val);
+    if(head==NULL)
+    {
+        head=newNode;
+        tail = newNode;
+        return;
+    }
+    newNode->next=head;
+    head->pre=newNode;
+    head=newNode;
+}
 void print_head(Node* head)
 {
     Node* temp = head;
@@ -80,12 +93,13 @@ int main()
     c->pre=b;
     d->pre=c;
 
-    
-    insert_at_pos(head,1,100);
-    print_head(head);
-    cout<<endl;
+    // insert_at_pos(head,1,100);
+    insert_head(head,tail,100);
     print_tail(tail);
     cout<<endl;
-    Size(head);
+    print_head(head);
+    cout<<endl;
+    // Size(head);
+   
     return 0;
 }
