@@ -40,9 +40,9 @@ int main()
         cout << q.front() << endl;
         q.pop();
     }
-    if (!q.empty())
-    {
-        cout << q.front();
-    }
+    // if (!q.empty())
+    // {
+    //     cout << q.front();
+    // }
     return 0;
 }

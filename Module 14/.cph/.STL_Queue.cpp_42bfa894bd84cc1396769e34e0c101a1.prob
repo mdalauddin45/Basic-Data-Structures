@@ -1,0 +1,1 @@
+{"name":"Local: STL_Queue","url":"e:\\Phitron\\Basic Data Structures\\Module 14\\STL_Queue.cpp","tests":[{"id":1688359498518,"input":"5\n10 20 30 40 50","output":"10\n20\n30\n40\n50"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Phitron\\Basic Data Structures\\Module 14\\STL_Queue.cpp","group":"local","local":true}
