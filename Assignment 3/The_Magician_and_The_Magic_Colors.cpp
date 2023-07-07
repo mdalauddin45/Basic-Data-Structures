@@ -20,7 +20,7 @@ string getColors(string colors) {
         } else {
             if (!st.empty()) {
                 char color1 = st.top();
-                string mix = getMix(color1, color);
+                string mix = getMix(color, color1);
                 if (!mix.empty()) {
                     st.pop();
                     for (char c : mix) {
@@ -37,7 +37,23 @@ string getColors(string colors) {
         finalColors = st.top() + finalColors;
         st.pop();
     }
-    
+    stack<char> st2;
+    for (char col : finalColors)
+    {
+        if (!st2.empty() && col == st2.top())
+        {
+            st2.pop();
+        }
+        else
+        {
+            st2.push(col);
+        } 
+    }
+    finalColors = "";
+    while (!st2.empty()) {
+        finalColors = st2.top() + finalColors;
+        st2.pop();
+    }
     return finalColors;
 }
 int main()
@@ -50,11 +66,7 @@ int main()
         string colors;
         cin >> colors;
         string result = getColors(colors);
-        if (result.empty()) {
-            cout << "" << endl;
-        } else {
-            cout << result << endl;
-        }
+        result.empty()? cout << "" << endl: cout << result << endl;
     }
     
     return 0;
