@@ -32,7 +32,6 @@ string getColors(string colors) {
             st.push(color);
         }
     }
-    
     string finalColors;
     while (!st.empty()) {
         finalColors = st.top() + finalColors;

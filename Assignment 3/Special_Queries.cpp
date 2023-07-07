@@ -27,8 +27,6 @@ int main()
                 cout<<"Invalid"<<endl;
             }
         }
-        
-        
     }
     
     return 0;
