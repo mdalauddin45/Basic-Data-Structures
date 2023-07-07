@@ -1,53 +1,61 @@
 #include<bits/stdc++.h>
 using namespace std;
-string getMixedColor(const string& color1, const string& color2) {
+string getMix(char color1, char color2) {
     if (color1 == color2) {
         return "";
-    } else if ((color1 == "Red" && color2 == "Blue") || (color1 == "Blue" && color2 == "Red")) {
-        return "Purple";
-    } else if ((color1 == "Red" && color2 == "Green") || (color1 == "Green" && color2 == "Red")) {
-        return "Yellow";
-    } else if ((color1 == "Blue" && color2 == "Green") || (color1 == "Green" && color2 == "Blue")) {
-        return "Cyan";
+    } else if ((color1 == 'R' && color2 == 'B') || (color1 == 'B' && color2 == 'R')) {
+        return "P";
+    } else if ((color1 == 'R' && color2 == 'G') || (color1 == 'G' && color2 == 'R')) {
+        return "Y";
+    } else if ((color1 == 'B' && color2 == 'G') || (color1 == 'G' && color2 == 'B')) {
+        return "C";
     }
-
     return "";
 }
-
-string getFinalColors(const string& colors) {
-    stack<char> colorStack;
-
+string getColors(string colors) {
+    stack<char> st;
     for (char color : colors) {
-        string mixedColor;
-        if (!colorStack.empty()) {
-            string prevColor(1, colorStack.top());
-            mixedColor = getMixedColor(prevColor, string(1, color));
-            if (mixedColor.empty()) {
-                colorStack.pop();
-                continue;
+        if (!st.empty() && color == st.top()) {
+            st.pop();
+        } else {
+            if (!st.empty()) {
+                char color1 = st.top();
+                string mix = getMix(color1, color);
+                if (!mix.empty()) {
+                    st.pop();
+                    for (char c : mix) {
+                        st.push(c);
+                    }
+                    continue;
+                }
             }
+            st.push(color);
         }
-        colorStack.push(mixedColor.empty() ? color : mixedColor[0]);
     }
+    
     string finalColors;
-    while (!colorStack.empty()) {
-        finalColors = colorStack.top() + finalColors;
-        colorStack.pop();
+    while (!st.empty()) {
+        finalColors = st.top() + finalColors;
+        st.pop();
     }
+    
     return finalColors;
 }
 int main()
 {
-    int q;
-    cin>>q;
-    while (q--)
-    {
-       int x;
-       cin>>x;
-       string colors;
-       cin>>colors;
-       string finalColors = getFinalColors(colors);
-       cout << finalColors << endl;
+    int n;
+    cin >> n;
+    while (n--) {
+        int x;
+        cin >> x;
+        string colors;
+        cin >> colors;
+        string result = getColors(colors);
+        if (result.empty()) {
+            cout << "" << endl;
+        } else {
+            cout << result << endl;
+        }
     }
     
     return 0;
