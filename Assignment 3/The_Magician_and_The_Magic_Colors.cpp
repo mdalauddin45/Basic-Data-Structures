@@ -1,13 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
-string getMix(char color1, char color2) {
-    if (color1 == color2) {
+string getMix(char color, char color1){
+    if (color==color1) {
         return "";
-    } else if ((color1 == 'R' && color2 == 'B') || (color1 == 'B' && color2 == 'R')) {
+    } else if ((color=='R' && color1=='B') || (color=='B' && color1=='R')) {
         return "P";
-    } else if ((color1 == 'R' && color2 == 'G') || (color1 == 'G' && color2 == 'R')) {
+    } else if ((color=='R' && color1=='G') || (color=='G' && color1=='R')) {
         return "Y";
-    } else if ((color1 == 'B' && color2 == 'G') || (color1 == 'G' && color2 == 'B')) {
+    } else if ((color=='B' && color1=='G') || (color=='G' && color1=='B')) {
         return "C";
     }
     return "";
@@ -40,12 +40,9 @@ string getColors(string colors) {
     stack<char> st2;
     for (char col : finalColors)
     {
-        if (!st2.empty() && col == st2.top())
-        {
+        if (!st2.empty() && col == st2.top()){
             st2.pop();
-        }
-        else
-        {
+        }else{
             st2.push(col);
         } 
     }
@@ -66,7 +63,7 @@ int main()
         string colors;
         cin >> colors;
         string result = getColors(colors);
-        result.empty()? cout << "" << endl: cout << result << endl;
+        result.empty()? cout<<""<<endl: cout<<result<<endl;
     }
     
     return 0;
