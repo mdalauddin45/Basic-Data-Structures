@@ -47,30 +47,18 @@ Node* input_tree()
     }
     return root;
 }
-void level_nodes(Node* root, int level) {
-    if (root == NULL)
-    {
-        return;
-    }
-    if (level == 0) cout << root->val << " ";
-    level_nodes(root->left, level - 1);
-    level_nodes(root->right, level - 1);
-}
-int NodeLevel(Node*root)
+bool perfect_tree(Node* root)
 {
-    if(root==NULL) return -1;
-    int left=NodeLevel(root->left);
-    int right=NodeLevel(root->right);
-    return max(left,right)+1;
+    if(root==NULL) return true;
+    if(root->left==NULL && root->right==NULL) return true;
+    if(root->left==NULL || root->right==NULL) return false;
+    return perfect_tree(root->left) && perfect_tree(root->right);
 }
-int main() {
-    Node* root = input_tree();
-    int level;
-    cin >> level;
-    if(NodeLevel(root)<level) cout<<"Invalid"<<endl;
-    else{
-        level_nodes(root, level);
-        cout<<endl;
-    }
+int main()
+{
+    Node *root = input_tree();
+    if(perfect_tree(root)) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl; 
+    
     return 0;
 }
