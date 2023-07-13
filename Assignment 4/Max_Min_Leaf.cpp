@@ -47,14 +47,23 @@ Node* input_tree()
     }
     return root;
 }
-int Sum_of_Tree(Node*root)
+int max_leaf(Node*root)
 {
-    if(root==NULL) return 0;
-    return root->val+Sum_of_Tree(root->left)+Sum_of_Tree(root->right);
+    if(root==NULL) return INT_MIN;
+    if(root->left==NULL && root->right==NULL) return root->val;
+    return max(max_leaf(root->left),max_leaf(root->right));
 }
+int min_leaf(Node*root)
+{
+    if(root==NULL) return INT_MAX;
+    if(root->left==NULL && root->right==NULL) return root->val;
+    return min(min_leaf(root->left),min_leaf(root->right));
+}
+
 int main()
 {
     Node *root = input_tree();
-    cout<<Sum_of_Tree(root)<<endl;
+    cout<<max_leaf(root)<<" "<<min_leaf(root)<<endl;
+    
     return 0;
 }
