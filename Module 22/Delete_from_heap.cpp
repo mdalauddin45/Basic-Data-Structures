@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-void insert_heap(vector<int>v,int x)
+void insert_heap(vector<int>&v,int x)
 {
     v.push_back(x);
     int currIndex=v.size()-1;
@@ -34,8 +34,46 @@ void delete_form_heap(vector<int>&v)
         int leftChild = 2*curr + 1;
         int rightChild = 2*curr + 2;
         int lastIndex = v.size()-1;
-        
+        int maxIndex = curr;
+        if(leftChild<=lastIndex && rightChild<=lastIndex)
+        {
+            //dutail acy 
+            if(v[leftChild]>=v[rightChild] && v[leftChild]>v[curr])
+            {
+                swap(v[leftChild],v[curr]);
+                curr = leftChild;
+            }
+            else if(v[rightChild]>=v[leftChild] && v[rightChild]>v[curr])
+            {
+                swap(v[rightChild],v[curr]);
+                curr = rightChild;
+            }
+            else break;
+        }
+        else if(leftChild<=lastIndex)
+        {
+            //left acy
+            if(v[leftChild]>v[curr])
+            {
+                swap(v[leftChild],v[curr]);
+                curr = leftChild;
+            }
+            else break;
+         
+        }
+        else if(rightChild<=lastIndex)
+        {
+            //right acy
+            if(v[rightChild]>v[curr])
+            {
+                swap(v[rightChild],v[curr]);
+                curr = rightChild;
+            }
+            else break;
+        }
+        else break;
     }
+
     
 }
 int main()
@@ -51,40 +89,7 @@ int main()
     // }
 
     vector<int> v={50,40,45,30,35,42,32,25,20,10};
-    int x;
-    cin>>x;
-    insert_heap(v,x);
+    delete_form_heap(v);
     print_vector(v);
-    // cout<<endl;
-    // int lastIndex=v.size()-1;
-    // swap(v[0],v[lastIndex]);
-    // v.pop_back();
-    // int index=0;
-    // int leftChild=2*index+1;
-    // int rightChild=2*index+2;
-    // while (leftChild<v.size())
-    // {
-    //     int maxIndex=index;
-    //     if(v[maxIndex]<v[leftChild])
-    //     {
-    //         maxIndex=leftChild;
-    //     }
-    //     if(rightChild<v.size() && v[maxIndex]<v[rightChild])
-    //     {
-    //         maxIndex=rightChild;
-    //     }
-    //     if(maxIndex==index)
-    //     {
-    //         break;
-    //     }
-    //     swap(v[maxIndex],v[index]);
-    //     index=maxIndex;
-    //     leftChild=2*index+1;
-    //     rightChild=2*index+2;
-    // }   
-    // for(int i=0;i<v.size();i++)
-    // {
-    //     cout<<v[i]<<" ";
-    // }
     return 0;
 }
