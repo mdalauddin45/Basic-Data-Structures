@@ -8,7 +8,7 @@ int main()
     v.push_back(x);
     int currIndex=v.size()-1;
     // cout<<currIndex<<endl;
-    int parentIndex=(currIndex-1)/2;
+    int parentIndex=(currIndex-1)/2;    
     // cout<<parentIndex<<endl;
     // cout<<v[parentIndex]<<" "<<v[currIndex]<<endl; 
     while (currIndex!=0)
